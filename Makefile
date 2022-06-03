@@ -23,7 +23,9 @@ heroku_create_app:
 	-@heroku create ${APP_NAME}
 
 deploy_heroku:
-	-@heroku git:remote -a ${APP_NAME}
+	heroku git:remote -a ${APP_NAME}
+	git add .
+	git commit -m "deploying heroku"
 	-@git push heroku master
 	-@heroku ps:scale web=1
 
