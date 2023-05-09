@@ -41,7 +41,7 @@ if st.button('Search'):
     
     st.image(posterURLs,width = 400)
     st.write(title_ok,genre, runtime, sep=" | ")
-    st.write(director)
+    st.write("Director: ", director)
     st.write(tagline)
     st.write(overview)
     st.write(cast_list)
