@@ -17,8 +17,8 @@ if st.button('Search'):
     # enter here the address of your flask api
     url = "https://streaming-availability.p.rapidapi.com/v2/search/title"
 
-    querystring = {"title":f"{{title}}",
-                   "country":f"{{country}}",
+    querystring = {"title":f"{title}",
+                   "country":f"{country}",
                    "show_type":"movie",
                    "output_language":"en"}
 
@@ -29,4 +29,4 @@ if st.button('Search'):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    print(response.json()["result"])
+    print(response.json()["result"][0]["overview"])
