@@ -25,7 +25,6 @@ if st.button('Search'):
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-'''    cast = "\n".join([f"{actor}" for actor in cast])'''
     title_ok = response.json()["result"][0]["title"]
     overview = response.json()["result"][0]["overview"]
     cast = response.json()["result"][0]["cast"]
