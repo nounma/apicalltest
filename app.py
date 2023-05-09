@@ -31,7 +31,9 @@ if st.button('Search'):
     cast = response.json()["result"][0]["cast"]
     trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
     streamingInfo = response.json()["result"][0].get(country, {}).get("streamingInfo")
+    posterURLs = response.json()["result"][0]["posterURLs"]["154"]
 
+    st.image(posterURLs,width = 154)
     st.write(title_ok)
     st.write(overview)
     st.write(cast)
