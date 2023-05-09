@@ -3,11 +3,11 @@ import streamlit as st
 import requests
 
 '''
-# Check on which plateform a movie is available?
+# Check on which plateform a movie is available!
 
 '''
-title= st.text_input("Title of the movie",value="batman")
-country= st.text_input("Country",value="us")
+title= st.text_input("What is the movie title?",value="batman")
+country= st.text_input("In which country to you want to watch?",value="us")
 if st.button('Search'):
 
 
