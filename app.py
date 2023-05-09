@@ -42,13 +42,12 @@ if st.button('Search'):
     st.image(posterURLs,width = 400)
     st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
     st.write("Director: ", director,"\n")
-    st.markdown("<p style='color:red;'>Director: {}</p>".format(director), unsafe_allow_html=True)
+    st.markdown("<p style='font-weight:bold;'>Director: {}</p>".format(director), unsafe_allow_html=True)
     st.write("Resume: ",tagline)
     st.write(overview)
     st.write("Actors: ",cast_list)
-    st.write("Watch the trailer here: ",trailer)
-    st.write("Watch the movie here: ",streamingURL)
-    st.markdown("<a href='{}' target='_blank'><button>Watch the movie here</button></a>".format(streamingURL), unsafe_allow_html=True)
+    st.markdown("<a href='{}' target='_blank'><button>Click to watch the trailer</button></a>".format(trailer), unsafe_allow_html=True)
+    st.markdown("<a href='{}' target='_blank'><button>Click to watch the movie</button></a>".format(streamingURL), unsafe_allow_html=True)
 
 
 
