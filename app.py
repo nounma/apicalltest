@@ -44,7 +44,7 @@ if st.button('Search'):
     st.write(director)
     st.write(tagline)
     st.write(overview)
-    st.write(cast_list)
+    st.write(cast_list, sep=", " )
     st.write(trailer)
     st.write(streamingURL)
 
