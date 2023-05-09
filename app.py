@@ -26,4 +26,6 @@ if st.button('Search'):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    print(response.json()["result"][0]["overview"])
+   overview = response.json()["result"][0]["overview"]
+   st.write(overview)
+
