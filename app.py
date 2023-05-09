@@ -40,7 +40,7 @@ if st.button('Search'):
     cast_list = " ,".join([f" {actor}" for actor in cast])
     
     st.image(posterURLs,width = 400)
-    st.write(title_ok,genre, runtime, sep=" | ")
+    st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
     st.write("Director: ", director)
     st.write(tagline)
     st.write(overview)
