@@ -47,6 +47,6 @@ if st.button('Search'):
     st.write(overview)
     st.write("Actors: ",cast_list)
     st.write("Watch the trailer here: ",trailer)
-    st.write("Watch the movie here: ",streamingURL)
+    st.button("Watch the movie here: ",streamingURL)
 
 
