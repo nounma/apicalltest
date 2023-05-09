@@ -30,7 +30,7 @@ if st.button('Search'):
     overview = response.json()["result"][0]["overview"]
     cast = response.json()["result"][0]["cast"]
     trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
-    streamingInfo = response.json()["result"][0][f"{country}"]["streamingInfo"]
+    streamingInfo = response.json()["result"][0][{country}]["streamingInfo"]
 
     st.write(title_ok)
     st.write(overview)
