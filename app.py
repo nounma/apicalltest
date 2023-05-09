@@ -37,7 +37,7 @@ if st.button('Search'):
     genre = response.json()["result"][0]["genres"][0]["name"]
     director = response.json()["result"][0]["directors"][0]
     runtime = response.json()["result"][0]["runtime"]
-    cast_list = "\n".join([f" {actor}" for actor in cast])
+    cast_list = " ,".join([f" {actor}" for actor in cast])
     
     st.image(posterURLs,width = 400)
     st.write(title_ok,genre, runtime, sep=" | ")
