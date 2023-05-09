@@ -26,7 +26,12 @@ if st.button('Search'):
 
     response = requests.get(url, headers=headers, params=querystring)
 
-    # A resume
+    title_ok = response.json()["result"][0]["title"]
     overview = response.json()["result"][0]["overview"]
+    cast = response.json()["result"][0]["cast"]
+    trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
+    st.write(title_ok)
     st.write(overview)
+    st.write(cast)
+    st.write(trailer)
 
