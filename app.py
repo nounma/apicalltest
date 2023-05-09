@@ -6,9 +6,9 @@ import datetime
 import requests
 
 '''
-# Image generator
+# Check on which plateform a movie is available?
 
-Try it out '''
+'''
 title= st.text_input("Title of the movie",value="batman")
 country= st.text_input("Negative Prompt",value="black and white image")
 if st.button('Submit'):
@@ -18,7 +18,7 @@ if st.button('Submit'):
     url = "https://streaming-availability.p.rapidapi.com/v2/search/title"
 
     querystring = {"title":f"{{title}}",
-                   "country":f"{{country}},
+                   "country":f"{{country}}",
                    "show_type":"movie",
                    "output_language":"en"}
 
