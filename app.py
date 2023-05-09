@@ -32,10 +32,13 @@ if st.button('Search'):
     trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
     streamingInfo = response.json()["result"][0].get(country, {}).get("streamingInfo")
     posterURLs = response.json()["result"][0]["posterURLs"]["154"]
-    genre = response.json()["result"][0]["genres"]["name"]
+    genre = response.json()["result"][0]["genres"][0]["name"]
+    director = response.json()["result"][0]["directors"][0]
+    runtime = response.json()["result"][0]["runtime"]
 
-    st.image(posterURLs,width = 154)
-    st.write(title_ok,genre, sep=" | ")
+    st.image(posterURLs,width = 400)
+    st.write(title_ok,genre, runtime, sep=" | ")
+    st.write(director)
     st.write(overview)
     st.write(cast)
     st.write(trailer)
