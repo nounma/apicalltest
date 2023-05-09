@@ -11,7 +11,7 @@ import requests
 '''
 title= st.text_input("Title of the movie",value="batman")
 country= st.text_input("Country",value="us")
-if st.button('Submit'):
+if st.button('Search'):
 
 
     # enter here the address of your flask api
