@@ -32,20 +32,19 @@ if st.button('Search'):
     overview = response.json()["result"][0]["overview"]
     cast = response.json()["result"][0]["cast"]
     tagline = response.json()["result"][0]["tagline"]
-
     trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
-    
     posterURLs = response.json()["result"][0]["posterURLs"]["500"]
     genre = response.json()["result"][0]["genres"][0]["name"]
     director = response.json()["result"][0]["directors"][0]
     runtime = response.json()["result"][0]["runtime"]
-
+    cast_list = "\n".join([f"{actor}" for actor in cast])
+    
     st.image(posterURLs,width = 400)
     st.write(title_ok,genre, runtime, sep=" | ")
     st.write(director)
     st.write(tagline)
     st.write(overview)
-    st.write(cast)
+    st.write(cast_list)
     st.write(trailer)
     st.write(streamingURL)
 
