@@ -42,10 +42,10 @@ if st.button('Search'):
     st.image(posterURLs,width = 400)
     st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
     st.write("Director: ", director,"\n")
-    st.write(tagline)
+    st.write("Resume: ",tagline)
     st.write(overview)
-    st.write(cast_list)
-    st.write(trailer)
-    st.write(streamingURL)
+    st.write("Actors: ",cast_list)
+    st.write("Watch the trailer here: ",trailer)
+    st.write("Watch the movie here: "streamingURL)
 
 
