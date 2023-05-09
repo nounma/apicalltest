@@ -32,7 +32,7 @@ if st.button('Submit'):
      "seed": "null",
      "guidance_scale": 7.5,
      "webhook": "null",
-     "track_id": "null"
+     "track_id": "null"}
         
     headers = {"Content-Type": "application/json"}
     response = requests.request("POST", url, json=payload, headers=headers)
