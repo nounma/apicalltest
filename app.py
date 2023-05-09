@@ -47,6 +47,8 @@ if st.button('Search'):
     st.write(overview)
     st.write("Actors: ",cast_list)
     st.write("Watch the trailer here: ",trailer)
-    st.button("Watch the movie here: ",streamingURL)
+    st.write("Watch the movie here: ",streamingURL)
+    st.markdown("<a href='{}' target='_blank'><button>Watch the movie here</button></a>".format(streamingURL), unsafe_allow_html=True)
+
 
 
