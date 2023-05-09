@@ -10,34 +10,31 @@ import requests
 
 This front queries the Le Wagon [taxi fare model API](https://taxifare.lewagon.ai/predict?pickup_datetime=2012-10-06%2012:10:20&pickup_longitude=40.7614327&pickup_latitude=-73.9798156&dropoff_longitude=40.6513111&dropoff_latitude=-73.8803331&passenger_count=2)
 '''
-
-pickup_date = st.date_input('pickup datetime', value=datetime.datetime(2012, 10, 6, 12, 10, 20))
-pickup_time = st.time_input('pickup datetime', value=datetime.datetime(2012, 10, 6, 12, 10, 20))
-pickup_datetime = f'{pickup_date} {pickup_time}'
-pickup_longitude = st.number_input('pickup longitude', value=40.7614327)
-pickup_latitude = st.number_input('pickup latitude', value=-73.9798156)
-dropoff_longitude = st.number_input('dropoff longitude', value=40.6413111)
-dropoff_latitude = st.number_input('dropoff latitude', value=-73.7803331)
-passenger_count = st.number_input('passenger_count', min_value=1, max_value=8, step=1, value=1)
-
-if st.button('Sumbit'):
+prompt= st.text_input("Prompt",value="panda eating a banana")
+negative_prompt= st.text_input("Negative Prompt",value="black and white image")
+if st.button('Submit'):
 
 
     # enter here the address of your flask api
-    url = 'https://taxifare.lewagon.ai/predict'
+    url = "https://stablediffusionapi.com/api/v3/dreambooth"
 
-    params = dict(
-        pickup_datetime=pickup_datetime,
-        pickup_longitude=pickup_longitude,
-        pickup_latitude=pickup_latitude,
-        dropoff_longitude=dropoff_longitude,
-        dropoff_latitude=dropoff_latitude,
-        passenger_count=passenger_count)
-
-    response = requests.get(url, params=params)
-
-    prediction = response.json()
-
-    pred = prediction['fare']
-
-    pred
+    payload = {
+     "key": "zNkopa4nVWcXhi1cbWyKygC8LuMqX9cvbX0qQRByQQhzLtRtXOU0WddKhr98",
+     "model_id": "midjourney",
+     "prompt": f"{prompt},DSLR photography, sharp focus,  Redshift, ((cinematic lighting)), f/1.4, ISO 200, 1/160s, 8K, RAW, unedited, in-frame",
+     "negative_prompt": f"{negative_prompt},painting, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, deformed, ugly, blurry, bad anatomy, bad proportions, extra limbs, cloned face, skinny, glitchy, double torso, extra arms, extra hands, mangled fingers, missing lips, ugly face, distorted face, extra legs, anime",
+     "width": "512",
+     "height": "512",
+     "samples": "1",
+     "num_inference_steps": "30",
+     "safety_checker": "no",
+     "enhance_prompt": "yes",
+     "seed": "null",
+     "guidance_scale": 7.5,
+     "webhook": "null",
+     "track_id": "null"
+        
+    headers = {"Content-Type": "application/json"}
+    response = requests.request("POST", url, json=payload, headers=headers)
+    image_link=response.json()['output'][0]
+    st.image(image_link,width = 400)
