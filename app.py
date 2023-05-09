@@ -42,6 +42,7 @@ if st.button('Search'):
     st.image(posterURLs,width = 400)
     st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
     st.write("Director: ", director,"\n")
+    st.markdown("<p style='color:red;'>Director: {}</p>".format(director), unsafe_allow_html=True)
     st.write("Resume: ",tagline)
     st.write(overview)
     st.write("Actors: ",cast_list)
