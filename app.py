@@ -29,7 +29,7 @@ if st.button('Search'):
     title_ok = response.json()["result"][0]["title"]
     overview = response.json()["result"][0]["overview"]
     cast = response.json()["result"][0]["cast"]
-    cast = "\n".join([f"{actor['name']}" for actor in cast])
+    cast = "\n".join([f"{actor}" for actor in cast])
 
     trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
     streamingInfo = response.json()["result"][0].get(country, {}).get("streamingInfo")
