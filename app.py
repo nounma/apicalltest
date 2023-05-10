@@ -49,5 +49,7 @@ if st.button('Search'):
     for key, value in streamingInfo.items():
         stream_link = value[0]["link"]
         st.write(stream_link)
+        st.markdown("<a href='{stream_link}' target='_blank'><button>Click to watch the movie on '{key}'  </button></a>".format(stream_link, key), unsafe_allow_html=True)
+
 
     st.write(response.json()["result"])
