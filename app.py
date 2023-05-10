@@ -25,16 +25,16 @@ if st.button('Search'):
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    for key, value in response.items(): 
-        title_ok = response.json()["result"][key]["title"]
-        overview = response.json()["result"][key]["overview"]
-        cast = response.json()["result"][key]["cast"]
-        tagline = response.json()["result"][key]["tagline"]
-        trailer = response.json()["result"][key]["youtubeTrailerVideoLink"]
-        posterURLs = response.json()["result"][key]["posterURLs"]["500"]
-        genre = response.json()["result"][key]["genres"][0]["name"]
-        director = response.json()["result"][key]["directors"][0]
-        runtime = response.json()["result"][key]["runtime"]
+    for index, item in enumerate(response): 
+        title_ok = response.json()["result"][index]["title"]
+        overview = response.json()["result"][index]["overview"]
+        cast = response.json()["result"][index]["cast"]
+        tagline = response.json()["result"][index]["tagline"]
+        trailer = response.json()["result"][index]["youtubeTrailerVideoLink"]
+        posterURLs = response.json()["result"][index]["posterURLs"]["500"]
+        genre = response.json()["result"][index]["genres"][0]["name"]
+        director = response.json()["result"][index]["directors"][0]
+        runtime = response.json()["result"][index]["runtime"]
         cast_list = " ,".join([f" {actor}" for actor in cast])
 
         st.image(posterURLs,width = 400)
