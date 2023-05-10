@@ -25,30 +25,30 @@ if st.button('Search'):
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    
-    title_ok = response.json()["result"][0]["title"]
-    overview = response.json()["result"][0]["overview"]
-    cast = response.json()["result"][0]["cast"]
-    tagline = response.json()["result"][0]["tagline"]
-    trailer = response.json()["result"][0]["youtubeTrailerVideoLink"]
-    posterURLs = response.json()["result"][0]["posterURLs"]["500"]
-    genre = response.json()["result"][0]["genres"][0]["name"]
-    director = response.json()["result"][0]["directors"][0]
-    runtime = response.json()["result"][0]["runtime"]
-    cast_list = " ,".join([f" {actor}" for actor in cast])
-    
-    st.image(posterURLs,width = 400)
-    st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
-    st.write("Director: ", director,"\n")
-    st.write("Overview: ")
-    st.markdown("<p style='font-weight:bold;'>{}</p>".format(tagline), unsafe_allow_html=True)
-    st.write(overview)
-    st.write("Actors: ",cast_list)
-    st.markdown("<a href='{}' target='_blank'><button>Click to watch the trailer</button></a>".format(trailer), unsafe_allow_html=True)
-    streamingInfo = response.json()["result"][0]["streamingInfo"][f"{country}"]
-    for key, value in streamingInfo.items():
-        stream_link = value[0]["link"]
-        st.markdown("<a href='{0}' target='_blank'><button style='background-color: red;'>Click to watch the movie on '{1}'  </button></a>".format(stream_link, key), unsafe_allow_html=True)
+    for mkey, mvalue in response.items(): 
+        title_ok = response.json()["result"][mkey]["title"]
+        overview = response.json()["result"][mkey]["overview"]
+        cast = response.json()["result"][mkey]["cast"]
+        tagline = response.json()["result"][mkey]["tagline"]
+        trailer = response.json()["result"][mkey]["youtubeTrailerVideoLink"]
+        posterURLs = response.json()["result"][mkey]["posterURLs"]["500"]
+        genre = response.json()["result"][mkey]["genres"][0]["name"]
+        director = response.json()["result"][mkey]["directors"][0]
+        runtime = response.json()["result"][mkey]["runtime"]
+        cast_list = " ,".join([f" {actor}" for actor in cast])
 
+        st.image(posterURLs,width = 400)
+        st.write(title_ok," | ","Genre: ",genre," | ", runtime,"min")
+        st.write("Director: ", director,"\n")
+        st.write("Overview: ")
+        st.markdown("<p style='font-weight:bold;'>{}</p>".format(tagline), unsafe_allow_html=True)
+        st.write(overview)
+        st.write("Actors: ",cast_list)
+        st.markdown("<a href='{}' target='_blank'><button>Click to watch the trailer</button></a>".format(trailer), unsafe_allow_html=True)
+        streamingInfo = response.json()["result"][0]["streamingInfo"][f"{country}"]
+        for key, value in streamingInfo.items():
+            stream_link = value[0]["link"]
+            st.markdown("<a href='{0}' target='_blank'><button style='background-color: red;'>Click to watch the movie on '{1}'  </button></a>".format(stream_link, key), unsafe_allow_html=True)
+        st.write("___________________________________")
 
     st.write(response.json()["result"])
