@@ -25,16 +25,16 @@ if st.button('Search'):
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    for mkey, mvalue in response.items(): 
-        title_ok = response.json()["result"][mkey]["title"]
-        overview = response.json()["result"][mkey]["overview"]
-        cast = response.json()["result"][mkey]["cast"]
-        tagline = response.json()["result"][mkey]["tagline"]
-        trailer = response.json()["result"][mkey]["youtubeTrailerVideoLink"]
-        posterURLs = response.json()["result"][mkey]["posterURLs"]["500"]
-        genre = response.json()["result"][mkey]["genres"][0]["name"]
-        director = response.json()["result"][mkey]["directors"][0]
-        runtime = response.json()["result"][mkey]["runtime"]
+    for key, value in response.items(): 
+        title_ok = response.json()["result"][key]["title"]
+        overview = response.json()["result"][key]["overview"]
+        cast = response.json()["result"][key]["cast"]
+        tagline = response.json()["result"][key]["tagline"]
+        trailer = response.json()["result"][key]["youtubeTrailerVideoLink"]
+        posterURLs = response.json()["result"][key]["posterURLs"]["500"]
+        genre = response.json()["result"][key]["genres"][0]["name"]
+        director = response.json()["result"][key]["directors"][0]
+        runtime = response.json()["result"][key]["runtime"]
         cast_list = " ,".join([f" {actor}" for actor in cast])
 
         st.image(posterURLs,width = 400)
