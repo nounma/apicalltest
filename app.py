@@ -26,6 +26,7 @@ if st.button('Search'):
 
     response = requests.get(url, headers=headers, params=querystring)
     streamingInfo = response.json()["result"][0]["streamingInfo"][f"{country}"]
+    st.write(streamingInfo)
     streamingInfo_first_value = list(streamingInfo.values())[0]
     streamingURL = streamingInfo_first_value[0]["link"]
     title_ok = response.json()["result"][0]["title"]
