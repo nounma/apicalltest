@@ -46,7 +46,7 @@ if st.button('Search'):
     st.write("Actors: ",cast_list)
     st.markdown("<a href='{}' target='_blank'><button>Click to watch the trailer</button></a>".format(trailer), unsafe_allow_html=True)
     streamingInfo = response.json()["result"][0]["streamingInfo"][f"{country}"]
-    for key, value in streamingInfo:
+    for key, value in streamingInfo.items():
         stream_link = value[0]["link"]
         st.write(stream_link)
 
