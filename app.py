@@ -28,7 +28,7 @@ if st.button('Search'):
     streamingInfo = response.json()["result"][0]["streamingInfo"][f"{country}"]
     for key, value in streamingInfo:
         stream_link = value[0]["link"]
-        st.markdown("<a href='{}' target='_blank'><button>Click to watch the movie on "{key}" </button></a>".format(stream_link, key), unsafe_allow_html=True)
+        st.markdown("<a href='{}' target='_blank'><button>Click to watch the movie on '{}' </button></a>".format(stream_link, key), unsafe_allow_html=True)
 
     st.write(streamingInfo)
     streamingInfo_first_value = list(streamingInfo.values())[0]
