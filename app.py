@@ -50,4 +50,4 @@ if st.button('Search'):
         stream_link = value[0]["link"]
         st.write(stream_link)
 
-
+    st.write(response.json()["result"])
